@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
 import Circle from "./Circle";
 import { circles } from "./circles";
+import GameOver from "./GameOver";
 
 const getRndInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,6 +12,7 @@ class App extends Component {
   state = {
     score: 0,
     current: 0,
+    gameOver: false,
   };
 
   timer = undefined;
@@ -36,8 +37,6 @@ class App extends Component {
     });
     this.pace *= 0.95;
     this.timer = setTimeout (this.nextCircle, this.pace);
-
-    console.log("active circle is ", this.state.current)
   };
 
   startHandler = () => {
@@ -46,11 +45,18 @@ class App extends Component {
 
   stopHandler = () => {
     clearTimeout(this.timer);
+
+    this.setState({
+      gameOver: true,
+    });
   };
-  
+
+
+
     render() {
       return (
         <div>
+          {this.state.gameOver && <GameOver score={this.state.score} />}
           <h1>Speed Game</h1>
             <div className="circle-wrapper">
               {circles.map((c) => (
@@ -63,7 +69,7 @@ class App extends Component {
               />
               ))}
             </div>
-              <p>Your Score:</p>
+              <p className="score">Your Score: {this.state.score}</p>
             <div>
               <button onClick={this.startHandler}>Start</button>
               <button onClick={this.stopHandler}>Stop</button>

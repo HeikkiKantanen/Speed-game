@@ -13,10 +13,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   padding: 5rem;
-  background-image: rgba(248, 212, 83, 1.0);
-  background: -webkit-linear-gradient(top left, rgba(248, 212, 83, 1.0), rgba(255, 93, 91, 1.0));
-  background: -moz-linear-gradient(top left, rgba(248, 212, 83, 1.0), rgba(255, 93, 91, 1.0));
-  background: linear-gradient(to bottom right, rgba(248, 212, 83, 1.0), rgba(255, 93, 91, 1.0)); ;
+  background: -webkit-linear-gradient(top left, rgb(252, 0, 168), rgb(0, 255, 128));
+  background: -moz-linear-gradient(top left, rgb(252, 0, 168), rgb(0, 255, 128));
+  background: linear-gradient(to bottom right, rgb(252, 0, 168), rgb(0, 255, 128));
+  height: 100vh;
 }
 
 code {
@@ -24,18 +24,13 @@ code {
     monospace;
 }
 
-button {
-  font-family: 'Press Start 2P', cursive;;
-  padding: 0.8rem 2rem;
-  border: none;
-  background-color: whitesmoke;
-  margin: 1rem;
-  font-family: 'Press Start 2P', cursive;
-}
-
 h1 {
   margin: 2rem auto;
+  margin-bottom: 4rem;
 }
+
+/* ****************** CIRCLES ****************** */
+
 
 .circle-wrapper {
   display: flex;
@@ -52,23 +47,12 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 1rem;
-  color: white;
+  color: black;
 }
 
-.green {
-  background-color: aqua;
-}
-
-.blue {
-  background-color: dodgerblue;
-}
-
-.red {
-  background-color: coral;
-}
-
-.yellow {
-  background-color: yellowgreen;
+.score {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
 }
 
 .circle p {
@@ -77,5 +61,66 @@ h1 {
 
 .active {
   box-shadow: 0 0 5px snow;
-  border: 25px solid yellow;
+  border: 25px solid whitesmoke;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  margin: 3rem;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow:  2px 2px 0 3px  rgb(58, 53, 53);
+}
+
+button:hover {
+  transform: translate(5px, 5px);
+  filter:brightness(80%);
+}
+
+/* ****************** POPUP ****************** */
+
+.popup-wrapper {
+  position: fixed;
+  top:0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 150vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.popup {
+  position: relative;
+  bottom: 15%;
+  left: 0;
+  height: 30%;
+  width: 40%;
+  background-color: white;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0 0 5px #333;
+  margin: 0 auto;
+  color: black;
+}
+
+.popup h2 {
+  margin-top: 3rem;
+}
+
+.popup p {
+  margin: 1rem;
+  padding-top: 4rem;
+  color: black;
+}
+
+.popup button {
+  margin-left: 27rem;
+  margin-top: -2rem;
+  background-color: darkgray;
 }
